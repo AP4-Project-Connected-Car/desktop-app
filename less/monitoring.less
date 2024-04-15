@@ -1,0 +1,25 @@
+// out: false, compress: true, sourceMap: true, main: 'main.less'
+
+@import 'relative_data.less';
+@import 'battery.less';
+
+@card-size: 200px;
+@card-bg-color: rgba(255, 255, 255, 0.8);
+
+.monitoring {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    .data-card{
+        border-radius: 10px;
+        margin: 20px;
+        padding: 10px;
+        width: @card-size;
+        height: @card-size;
+        background: inherit;
+        overflow: hidden;
+        box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
+        background-color: @card-bg-color;
+    }
+}

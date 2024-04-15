@@ -1,0 +1,14 @@
+{
+    "components": {
+        "battery": {
+            "intervals": [
+                {"value": 13, "state": 100, "color": "success"},
+                {"value": 12.7, "state": 80, "color": "success"},
+                {"value": 12.4, "state": 50, "color": "success"},
+                {"value": 11.8, "state": 30, "color": "warning"},
+                {"value": 11.4, "state": 20, "color": "error"},
+                {"value": 11, "state": 0, "color": "error"}
+            ]
+        }
+    }
+}
