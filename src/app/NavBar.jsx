@@ -22,8 +22,8 @@ function getPathFromNavValue(value) {
     }
 }
 
-export default function NavBar() {
-    const [value, setValue] = useState(0);
+export default function NavBar({ pageIdx }) {
+    const [value, setValue] = useState(pageIdx);
     const navigate = useNavigate();
 
     return (

@@ -10,7 +10,6 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
 import Navigator from './app/Navigator';
-import NavBar from './app/NavBar';
 
 import reducer from './app/rootReducer';
 
@@ -22,7 +21,6 @@ root.render(
     <Provider store={store}>
         <BrowserRouter>
             <Navigator />
-            <NavBar />
         </BrowserRouter>
     </Provider>
 );
