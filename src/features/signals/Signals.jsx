@@ -9,7 +9,7 @@ export default function Signals() {
     const [isFailed, setIsFailed] = useState(false);
 
 	useEffect(() => {
-		fetch('http://localhost:8080/signals')
+		fetch(`http://${window.location.hostname}:8080/signals`)
             .then(response => response.json())
             .then(data => setSignalsList(data))
             .catch(err => {
