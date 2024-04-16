@@ -1,25 +1,32 @@
 // out: false, compress: true, sourceMap: true, main: 'main.less'
 
-@import 'relative_data.less';
-@import 'battery.less';
-
-@card-size: 200px;
 @card-bg-color: rgba(255, 255, 255, 0.8);
+@picture-size: 70px;
 
-.monitoring main {
+.signals main {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-around;
+    flex-direction: column;
 
     .data-card{
         border-radius: 10px;
-        margin: 20px;
+        margin: 10px 20px 10px 20px;
         padding: 10px;
-        width: @card-size;
-        height: @card-size;
         background: inherit;
         overflow: hidden;
         box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
         background-color: @card-bg-color;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+
+        img {
+            width: @picture-size;
+        }
+
+        h3 {
+            margin-left: 20px;
+        }
     }
 }
