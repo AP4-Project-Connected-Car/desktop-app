@@ -38,7 +38,7 @@ export default function LogForm({ closeModal }) {
                         value={logType}
                         label="Type"
                         onChange={handleTypeChange}
-                        name="logType"
+                        name="type"
                         defaultValue={0}>
                         { config.logbook.types.map(configType => <MenuItem key={configType.id} value={configType.id}>{configType.name}</MenuItem>) }
                     </Select>
@@ -54,7 +54,7 @@ export default function LogForm({ closeModal }) {
             </DialogContent>
             <DialogActions>
                 <Button onClick={closeModal}>Cancel</Button>
-                <Button type="submit">Subscribe</Button>
+                <Button type="submit">Add</Button>
             </DialogActions>
         </>
     );
