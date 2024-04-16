@@ -2,21 +2,25 @@ import { useState } from 'react';
 
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
+
+import LogForm from './LogForm';
+import LogCard from './LogCard';
 
 export default function Logbook() {
     const [open, setOpen] = useState(false);
+    const [logs, setLogs] = useState([
+        {id: 0, date: '16-04-2024', object: 'Test 1', type: 0, content: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio impedit esse veritatis rerum officiis officia. Explicabo minima nesciunt debitis, totam eum maxime sequi doloribus blanditiis delectus est quod? In, maxime?'},
+        {id: 1, date: '16-04-2024', object: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio impedit esse veritatis rerum officiis officia. Explicabo minima nesciunt debitis, totam eum maxime sequi doloribus blanditiis delectus est quod? In, maxime?', type: 1, content: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio impedit esse veritatis rerum officiis officia. Explicabo minima nesciunt debitis, totam eum maxime sequi doloribus blanditiis delectus est quod? In, maxime?'},
+        {id: 2, date: '16-04-2024', object: 'Test 2', type: 0, content: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio impedit esse veritatis rerum officiis officia. Explicabo minima nesciunt debitis, totam eum maxime sequi doloribus blanditiis delectus est quod? In, maxime?'},
+        {id: 3, date: '16-04-2024', object: 'Test 3', type: 1, content: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio impedit esse veritatis rerum officiis officia. Explicabo minima nesciunt debitis, totam eum maxime sequi doloribus blanditiis delectus est quod? In, maxime?'},
+    ]);
+
     const handleClickOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
     return (
-        <div className="signals">
+        <div className="logbook">
             <h1>Logbook</h1>
 
             {/* Add button */}
@@ -42,31 +46,13 @@ export default function Logbook() {
                         handleClose();
                     }
                 }}>
-                <DialogTitle>New log</DialogTitle>
-                <DialogContent>
-                    <TextField
-                        autoFocus
-                        required
-                        margin="dense"
-                        id="object"
-                        name="object"
-                        label="Object"
-                        type="text"
-                        fullWidth
-                        variant="outlined" />
-                    <TextField
-                        required
-                        id="outlined-multiline-static"
-                        label="Content"
-                        multiline
-                        rows={10} sx={{ marginTop: 1 }}
-                        fullWidth={true} />
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={handleClose}>Cancel</Button>
-                    <Button type="submit">Subscribe</Button>
-                </DialogActions>
+                <LogForm closeModal={handleClose} />
             </Dialog>
+
+            {/* Log list */}
+            <main>
+                { logs.map(log => <LogCard {...log} key={log.id} />) }
+            </main>
         </div>
     );
 } 

@@ -10,5 +10,11 @@
                 {"value": 11, "state": 0, "color": "error"}
             ]
         }
+    },
+    "logbook": {
+        "types": [
+            {"id": 0, "name": "Notes", "logo": 0},
+            {"id": 1, "name": "Maintenance", "logo": 1}
+        ]
     }
 }

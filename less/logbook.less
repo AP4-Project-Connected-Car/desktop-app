@@ -3,7 +3,7 @@
 @card-bg-color: rgba(255, 255, 255, 1);
 @picture-size: 70px;
 
-.signals main {
+.logbook main {
     display: flex;
     justify-content: space-around;
     flex-direction: column;
@@ -15,7 +15,7 @@
     .data-card{
         border-radius: 10px;
         margin: 10px 20px 10px 20px;
-        padding: 10px;
+        padding: 20px;
         background: inherit;
         overflow: hidden;
         box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
@@ -25,26 +25,23 @@
         align-items: center;
         cursor: pointer;
 
-        img {
-            width: @picture-size;
-        }
+        section {
+            max-width: 90%;
 
-        h3 {
-            margin-left: 20px;
-        }
-    }
+            h3, h6 {
+                margin: 0;
+            }
 
-    .modal {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 400;
-        box-shadow: 24;
-        padding: 4;
+            h3 {
+                margin-bottom: 10px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
 
-        p {
-            text-align: justify;
+            h6 {
+                font-style: italic;
+            }
         }
     }
 }
