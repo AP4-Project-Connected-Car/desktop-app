@@ -14,7 +14,7 @@ const style = {
     border: 'none',
     boxShadow: 24,
     p: 4,
-    paddingBottom: 0
+    paddingBottom: 1
   };
 
 export default function SignalCard({ name, description, imgName }) {
@@ -39,7 +39,7 @@ export default function SignalCard({ name, description, imgName }) {
                     </Typography>
                     <Typography id="modal-modal-description" sx={{ mt: 2 }} dangerouslySetInnerHTML={{__html: description}}>
                     </Typography>
-                    <img src={ imgName } alt={name} style={{ display: 'block', margin: 'auto' }} />
+                    <img src={ imgName } alt={name} style={{ display: 'block', margin: 'auto', width: '100px' }} />
                 </Box>
             </Modal>
         </>
