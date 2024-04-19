@@ -22,6 +22,8 @@ export default function SignalCard({ name, description, imgName }) {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
+    imgName = imgName.replace('img/', '/assets/');
+
     return (
         <>
             <div className="data-card" onClick={handleOpen}>
