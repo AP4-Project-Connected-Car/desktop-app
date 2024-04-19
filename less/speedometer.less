@@ -1,0 +1,33 @@
+// out: false, compress: true, sourceMap: true, main: 'monitoring.less'
+
+@card-size: 200px;
+
+html .monitoring main .speedometer-data {
+    width: @card-size * 2;
+    padding: 5px;
+    
+    .line-1 h3 {
+        text-align: center;
+    }
+
+    .line-2 {
+        display: flex;
+    
+        .speedometer-container, .data-div {
+            display: flex;
+            align-items: center;
+        }
+
+        .speedometer-container {
+            flex-grow: 1;
+            justify-content: center;
+        }
+        
+        .data-div {
+            flex-grow: 1;
+            font-size: 30px;
+            justify-content: center;
+        }
+    }
+}
+

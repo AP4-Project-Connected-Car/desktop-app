@@ -10,16 +10,15 @@ export default function Temperature({ cardTitle, cardValue }) {
     const iconColors = config.components.temperature.colors;
 
     // Choose which color to use
-    if (cardValue >= iconColors[0].value) iconColor = "success";
+    if (cardValue >= iconColors[0].value) iconColor = iconColors[0].color;
     else {
         for (let i = iconColors.length - 1; i >= 0; i--) {
             if (cardValue <= iconColors[i].value) {
                 iconColor = iconColors[i].color;
-                break;x
+                break;
             }
         }
     }
-    console.log(cardValue, iconColor);
 
     return (
         <DataCard className="temperature-data">

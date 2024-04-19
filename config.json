@@ -16,6 +16,10 @@
                 {"value": 15, "color": "warning"},
                 {"value": 5, "color": "error"}
             ]
+        },
+        "speedometer": {
+            "min": 0,
+            "max": 150
         }
     },
     "logbook": {
