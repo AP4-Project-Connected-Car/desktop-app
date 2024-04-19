@@ -18,8 +18,16 @@ export default function Logbook() {
 
     async function loadLogs() {
 		try {
-			const response = await fetch(`http://${window.location.hostname}:8080/logbook`);
+			const response = await fetch("https://albion-portaler-api-a7b10e63cc73.herokuapp.com/log");
 			const data = await response.json();
+            data.sort(function(a, b) {
+                let keyA = new Date(a.createdAt),
+                    keyB = new Date(b.createdAt);
+                // Compare the 2 dates
+                if (keyA > keyB) return -1;
+                if (keyA < keyB) return 1;
+                return 0;
+            });
 			setLogs(data);
 		} catch (err) {
 			console.error(err);
@@ -56,7 +64,7 @@ export default function Logbook() {
                         const formJson = Object.fromEntries(formData.entries());
                         formJson.type = Number(formJson.type);
                         console.log(formJson);
-                        fetch(`http://${window.location.hostname}:8080/logbook`, {
+                        fetch("https://albion-portaler-api-a7b10e63cc73.herokuapp.com/log", {
                             method: 'POST',
                             headers: {
                               'Accept': 'application/json',
@@ -74,7 +82,6 @@ export default function Logbook() {
 
             {/* Log list */}
             <main>
-                {  }
                 { !isFailed
                      ?
                     logs.map(log => <LogCard {...log} key={log._id} />)

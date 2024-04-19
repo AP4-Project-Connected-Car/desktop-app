@@ -31,13 +31,14 @@ function getLogoFromId(id) {
     }
 }
 
-export default function LogCard({ object, date, content, type }) {
+export default function LogCard({ object, createdAt, content, type }) {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
     const configType = config.logbook.types[type];
     const Logo = getLogoFromId(configType.id);
+    const date = new Date(createdAt).toLocaleDateString();
 
     return (
         <>
