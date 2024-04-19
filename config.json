@@ -9,6 +9,13 @@
                 {"value": 11.4, "state": 20, "color": "error"},
                 {"value": 11, "state": 0, "color": "error"}
             ]
+        },
+        "temperature": {
+            "colors": [
+                {"value": 25, "color": "success"},
+                {"value": 15, "color": "warning"},
+                {"value": 5, "color": "error"}
+            ]
         }
     },
     "logbook": {

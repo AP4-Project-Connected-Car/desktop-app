@@ -48,7 +48,7 @@ export default function Battery({ cardTitle, cardValue }) {
                 <div className="battery-container">
                     <BatteryComponent sx={{ fontSize: 100 }} color={ batteryColor } />
                 </div>
-                <div className="data-div">{cardValue}V</div>
+                <div className="data-div">{cardValue} V</div>
             </div>
         </DataCard>
     );
