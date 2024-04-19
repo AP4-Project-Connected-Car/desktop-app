@@ -12,9 +12,10 @@
         },
         "temperature": {
             "colors": [
-                {"value": 25, "color": "success"},
-                {"value": 15, "color": "warning"},
-                {"value": 5, "color": "error"}
+                {"value": 80, "color": "error"},
+                {"value": 60, "color": "warning"},
+                {"value": 40, "color": "success"},
+                {"value": 20, "color": "info"}
             ]
         },
         "speedometer": {

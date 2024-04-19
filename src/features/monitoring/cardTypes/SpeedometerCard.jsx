@@ -10,7 +10,7 @@ import Speedometer, {
 
 import DataCard from './DataCard';
 
-export default function SpeedometerCard({ cardTitle, cardValue }) {
+export default function SpeedometerCard({ cardTitle, cardValue, cardUnit }) {
     const speedometerConfig = config.components.speedometer;
     const infoColor = "#0288d1";
 
@@ -36,7 +36,7 @@ export default function SpeedometerCard({ cardTitle, cardValue }) {
                         <Marks lineColor='#000' />
                     </Speedometer>
                 </div>
-                <div className="data-div">{cardValue} km/h</div>
+                <div className="data-div">{cardValue} {cardUnit}</div>
             </div>
         </DataCard>
     );

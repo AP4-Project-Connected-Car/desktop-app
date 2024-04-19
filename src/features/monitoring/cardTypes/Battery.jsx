@@ -22,7 +22,7 @@ function getBatteryComponentFromState(state) {
     else if (state >= 100) return BatteryChargingFullRoundedIcon;
 }
 
-export default function Battery({ cardTitle, cardValue }) {
+export default function Battery({ cardTitle, cardValue, cardUnit }) {
     let BatteryComponent = BatteryAlertRoundedIcon;
     let batteryColor = 'error';
 
@@ -48,7 +48,7 @@ export default function Battery({ cardTitle, cardValue }) {
                 <div className="battery-container">
                     <BatteryComponent sx={{ fontSize: 100 }} color={ batteryColor } />
                 </div>
-                <div className="data-div">{cardValue} V</div>
+                <div className="data-div">{cardValue} {cardUnit}</div>
             </div>
         </DataCard>
     );

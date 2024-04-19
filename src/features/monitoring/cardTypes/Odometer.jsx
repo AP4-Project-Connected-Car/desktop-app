@@ -2,8 +2,13 @@ import { GiCarWheel } from "react-icons/gi";
 
 import DataCard from './DataCard';
 
-export default function Odometer({ cardValue }) {
+function numberWithSpaces(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+}
+
+export default function Odometer({ cardValue, cardUnit }) {
     const infoColor = "#0288d1";
+    cardValue = numberWithSpaces(cardValue);
 
     return (
         <DataCard className="odometer-data">
@@ -11,7 +16,7 @@ export default function Odometer({ cardValue }) {
                 <GiCarWheel size={'5em'} color={ infoColor } />
             </div>
             <div className="line-2">
-                <div className="data-div">{cardValue} km</div>
+                <div className="data-div">{cardValue} {cardUnit}</div>
             </div>
         </DataCard>
     );
