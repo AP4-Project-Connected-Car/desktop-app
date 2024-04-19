@@ -23,6 +23,8 @@ function getBatteryComponentFromState(state) {
 }
 
 export default function Battery({ cardTitle, cardValue, cardUnit }) {
+    cardValue = Math.trunc(cardValue * 100) / 100
+
     let BatteryComponent = BatteryAlertRoundedIcon;
     let batteryColor = 'error';
 

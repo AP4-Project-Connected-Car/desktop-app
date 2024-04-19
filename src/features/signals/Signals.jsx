@@ -9,7 +9,7 @@ export default function Signals() {
     const [isFailed, setIsFailed] = useState(false);
 
 	useEffect(() => {
-		fetch(`http://${window.location.hostname}:8080/signals`)
+		fetch(`https://albion-portaler-api-a7b10e63cc73.herokuapp.com/signal`)
             .then(response => response.json())
             .then(data => setSignalsList(data))
             .catch(err => {

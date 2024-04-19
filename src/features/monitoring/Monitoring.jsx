@@ -7,6 +7,10 @@ import Odometer from './cardTypes/Odometer';
 import SpeedometerCard from './cardTypes/SpeedometerCard';
 import Temperature from './cardTypes/Temperature';
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 export default function Monitoring() {
     const [data, setData] = useState([]);
     const [isFailed, setIsFailed] = useState(false);
@@ -22,19 +26,21 @@ export default function Monitoring() {
         try {
             const response = await fetch("https://albion-portaler-api-a7b10e63cc73.herokuapp.com/monitoring");
             const data = await response.json();
-            console.log(data);
             const newData = [];
             for (const compName in data)
                 newData.push({
                     component: dataTypes[compName],
                     ...data[compName]
                 });
-            console.log(newData);
             setData(newData);
+
+            await sleep(3000);
+            await updateData();
         } catch (err) {
             console.error(err);
             setIsFailed(true);
         }
+
     };
 
     useEffect(() => {
