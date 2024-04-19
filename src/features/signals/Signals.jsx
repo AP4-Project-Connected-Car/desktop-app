@@ -23,7 +23,7 @@ export default function Signals() {
             <h1>Signals</h1>
             <main>
                 { !isFailed ? signalsList.map(signal => (
-					<SignalCard {...signal} key={signal.id} />
+					<SignalCard {...signal} key={signal._id} />
 				)) : 
                     <div className="error-div">
                         <Alert variant="filled" severity="error">An error has occured when trying accessing data.</Alert>
