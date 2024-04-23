@@ -28,5 +28,14 @@
             {"id": 0, "name": "Notes", "logo": 0},
             {"id": 1, "name": "Maintenance", "logo": 1}
         ]
+    },
+    "api": {
+        "protocol": "http",
+        "hostname": "localhost:8080",
+        "path": "/api"
+    },
+    "WS": {
+        "protocol": "ws",
+        "hostname": "localhost"
     }
 }
