@@ -15,14 +15,14 @@ const style = {
     boxShadow: 24,
     p: 4,
     paddingBottom: 1
-  };
+};
 
 export default function SignalCard({ name, description, imgName }) {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
-    imgName = imgName.replace('img/', '/assets/');
+    imgName = imgName.replace('img/', '/');
 
     return (
         <>
