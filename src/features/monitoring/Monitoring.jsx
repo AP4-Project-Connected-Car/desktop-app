@@ -7,6 +7,8 @@ import Odometer from './cardTypes/Odometer';
 import SpeedometerCard from './cardTypes/SpeedometerCard';
 import Temperature from './cardTypes/Temperature';
 
+import * as config from '../../../config.json';
+
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -24,7 +26,8 @@ export default function Monitoring() {
 
     const updateData = async () => {
         try {
-            const response = await fetch("https://albion-portaler-api-a7b10e63cc73.herokuapp.com/monitoring");
+            const monitoringDataUrl = `${config.api.protocol}://${config.api.hostname}${config.api.path}/monitoring`;
+            const response = await fetch(monitoringDataUrl);
             const data = await response.json();
             const newData = [];
             for (const compName in data)

@@ -32,7 +32,7 @@
     "api": {
         "protocol": "http",
         "hostname": "localhost:8080",
-        "path": "/api"
+        "path": ""
     },
     "WS": {
         "protocol": "ws",

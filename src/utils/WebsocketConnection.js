@@ -22,7 +22,7 @@ export default class WebsocketConnection {
     async init() {
         if (this.port && this.uri) return;
 
-        const portApiUrl = `${config.api.protocol}://${config.api.hostname}${config.api.path}/ports`;
+        const portApiUrl = `${config.api.protocol}://${config.api.hostname}${config.api.path}/api/ports`;
         const response = await fetch(portApiUrl);
         const portData = await response.json();
 
