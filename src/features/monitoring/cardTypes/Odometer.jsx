@@ -13,7 +13,7 @@ export default function Odometer({ cardValue, cardUnit }) {
     return (
         <DataCard className="odometer-data">
             <div className="line-1">
-                <GiCarWheel size={'5em'} color={ infoColor } />
+                <GiCarWheel size={'4em'} color={ infoColor } />
             </div>
             <div className="line-2">
                 <div className="data-div">{cardValue} {cardUnit}</div>
