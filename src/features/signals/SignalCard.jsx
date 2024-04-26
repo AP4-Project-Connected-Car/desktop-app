@@ -1,8 +1,13 @@
 import { useState } from 'react';
 
-import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import Modal from '@mui/material/Modal';
+import DialogTitle from '@mui/material/DialogTitle';
+import DialogContent from '@mui/material/DialogContent';
+import DialogActions from '@mui/material/DialogActions';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
+import Dialog from '@mui/material/Dialog';
+import Button from '@mui/material/Button';
 
 const style = {
     position: 'absolute',
@@ -30,20 +35,35 @@ export default function SignalCard({ name, description, imgName }) {
                 <h3>{ name }</h3>
                 <img src={ imgName } alt={name} />
             </div>
-            <Modal
-                open={open}
+            
+            <Dialog
                 onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description">
-                <Box sx={style}>
-                    <Typography id="modal-modal-title" variant="h6" component="h2">
-                        { name }
-                    </Typography>
-                    <Typography id="modal-modal-description" sx={{ mt: 2 }} dangerouslySetInnerHTML={{__html: description}}>
-                    </Typography>
+                aria-labelledby="customized-dialog-title"
+                open={open}>
+                <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
+                    { name }
+                </DialogTitle>
+                <IconButton
+                    aria-label="close"
+                    onClick={handleClose}
+                    sx={{
+                        position: 'absolute',
+                        right: 8,
+                        top: 8,
+                        color: (theme) => theme.palette.grey[500],
+                    }}>
+                    <CloseIcon />
+                </IconButton>
+                <DialogContent dividers>
+                    <Typography gutterBottom dangerouslySetInnerHTML={{__html: description}}></Typography>
                     <img src={ imgName } alt={name} style={{ display: 'block', margin: 'auto', width: '100px' }} />
-                </Box>
-            </Modal>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleClose}>
+                        OK
+                    </Button>
+                </DialogActions>
+            </Dialog>
         </>
     );
 }

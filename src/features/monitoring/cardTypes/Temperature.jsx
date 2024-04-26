@@ -27,7 +27,7 @@ export default function Temperature({ cardTitle, cardValue, cardUnit }) {
             </div>
             <div className="line-2">
                 <div className="temperature-container">
-                    <DeviceThermostatIcon sx={{ fontSize: 100 }} color={ iconColor } />
+                    <DeviceThermostatIcon sx={{ fontSize: 70 }} color={ iconColor } />
                 </div>
                 <div className="data-div">{cardValue} {cardUnit}</div>
             </div>
