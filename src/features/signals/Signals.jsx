@@ -5,7 +5,7 @@ import Alert from '@mui/material/Alert';
 import SignalCard from './SignalCard';
 
 import * as config from '../../../config.json';
-const SERVER_HOSTNAME = import.meta.env.VITE_SERVER_HOSTNAME ? import.meta.env.VITE_SERVER_HOSTNAME : config.api.hostname;
+const SERVER_HOSTNAME = window.location.hostname;
 
 export default function Signals() {
     const [signalsList, setSignalsList] = useState([]);

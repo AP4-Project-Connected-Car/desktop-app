@@ -1,6 +1,6 @@
 import * as config from '../../config.json';
-const SERVER_API_HOSTNAME = import.meta.env.VITE_SERVER_HOSTNAME ? import.meta.env.VITE_SERVER_HOSTNAME : config.api.hostname;
-const SERVER_WS_HOSTNAME = import.meta.env.VITE_SERVER_HOSTNAME ? import.meta.env.VITE_SERVER_HOSTNAME : config.WS.hostname;
+const SERVER_API_HOSTNAME = window.location.hostname;
+const SERVER_WS_HOSTNAME = window.location.hostname;
 
 export default class WebsocketConnection {
     constructor() {

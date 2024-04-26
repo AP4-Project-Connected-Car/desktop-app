@@ -9,7 +9,7 @@ import LogForm from './LogForm';
 import LogCard from './LogCard';
 
 import * as config from '../../../config.json';
-const SERVER_HOSTNAME = import.meta.env.VITE_SERVER_HOSTNAME ? import.meta.env.VITE_SERVER_HOSTNAME : config.api.hostname;
+const SERVER_HOSTNAME = window.location.hostname;
 
 export default function Logbook() {
     const [open, setOpen] = useState(false);

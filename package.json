@@ -1,7 +1,6 @@
 {
-  "name": "reactube",
+  "name": "connected_car",
   "version": "1.0.0",
-  "description": "TP du cours React par uidlt.fr",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,8 +8,6 @@
     "build": "vite build",
     "preview": "vite preview"
   },
-  "author": "Thomas Fritsch <thomas@uidlt.fr> (https://uidlt.fr)",
-  "homepage": "https://github.com/cours-react/",
   "license": "ISC",
   "devDependencies": {
     "@vitejs/plugin-react": "^4.2.1",

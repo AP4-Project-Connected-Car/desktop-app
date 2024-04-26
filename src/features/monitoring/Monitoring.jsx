@@ -8,7 +8,7 @@ import SpeedometerCard from './cardTypes/SpeedometerCard';
 import Temperature from './cardTypes/Temperature';
 
 import * as config from '../../../config.json';
-const SERVER_HOSTNAME = import.meta.env.VITE_SERVER_HOSTNAME ? import.meta.env.VITE_SERVER_HOSTNAME : config.api.hostname;
+const SERVER_HOSTNAME = window.location.hostname;
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
