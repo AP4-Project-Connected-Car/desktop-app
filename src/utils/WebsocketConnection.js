@@ -1,9 +1,11 @@
 import * as config from '../../config.json';
+const SERVER_API_HOSTNAME = import.meta.env.VITE_SERVER_HOSTNAME ? import.meta.env.VITE_SERVER_HOSTNAME : config.api.hostname;
+const SERVER_WS_HOSTNAME = import.meta.env.VITE_SERVER_HOSTNAME ? import.meta.env.VITE_SERVER_HOSTNAME : config.WS.hostname;
 
 export default class WebsocketConnection {
     constructor() {
         this.protocol = config.WS.protocol;
-        this.host = config.WS.hostname;
+        this.host = SERVER_WS_HOSTNAME;
         this.connection = this.uri = this.port = null;
 
         // To override
@@ -22,7 +24,7 @@ export default class WebsocketConnection {
     async init() {
         if (this.port && this.uri) return;
 
-        const portApiUrl = `${config.api.protocol}://${config.api.hostname}${config.api.path}/api/ports`;
+        const portApiUrl = `${config.api.protocol}://${SERVER_API_HOSTNAME}:${config.api.port}${config.api.path}/api/ports`;
         const response = await fetch(portApiUrl);
         const portData = await response.json();
 

@@ -31,11 +31,12 @@
     },
     "api": {
         "protocol": "http",
-        "hostname": "localhost:8080",
+        "hostname": "localhost",
+        "port": "8080",
         "path": ""
     },
     "WS": {
-        "protocol": "ws",
-        "hostname": "localhost"
+        "hostname": "localhost",
+        "protocol": "ws"
     }
 }

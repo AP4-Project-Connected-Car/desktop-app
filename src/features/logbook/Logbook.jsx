@@ -9,6 +9,7 @@ import LogForm from './LogForm';
 import LogCard from './LogCard';
 
 import * as config from '../../../config.json';
+const SERVER_HOSTNAME = import.meta.env.VITE_SERVER_HOSTNAME ? import.meta.env.VITE_SERVER_HOSTNAME : config.api.hostname;
 
 export default function Logbook() {
     const [open, setOpen] = useState(false);
@@ -20,7 +21,7 @@ export default function Logbook() {
 
     async function loadLogs() {
 		try {
-            const logsUrl = `${config.api.protocol}://${config.api.hostname}${config.api.path}/logbook`;
+            const logsUrl = `${config.api.protocol}://${SERVER_HOSTNAME}:${config.api.port}${config.api.path}/logbook`;
             const response = await fetch(logsUrl);
 			const data = await response.json();
             data.sort(function(a, b) {
@@ -66,7 +67,7 @@ export default function Logbook() {
                         const formData = new FormData(event.currentTarget);
                         const formJson = Object.fromEntries(formData.entries());
                         formJson.type = Number(formJson.type);
-                        const logsUrl = `${config.api.protocol}://${config.api.hostname}${config.api.path}/logbook`;
+                        const logsUrl = `${config.api.protocol}://${SERVER_HOSTNAME}:${config.api.port}${config.api.path}/logbook`;
                         fetch(logsUrl, {
                             method: 'POST',
                             headers: {

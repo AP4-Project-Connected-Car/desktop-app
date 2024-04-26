@@ -8,6 +8,7 @@ import SpeedometerCard from './cardTypes/SpeedometerCard';
 import Temperature from './cardTypes/Temperature';
 
 import * as config from '../../../config.json';
+const SERVER_HOSTNAME = import.meta.env.VITE_SERVER_HOSTNAME ? import.meta.env.VITE_SERVER_HOSTNAME : config.api.hostname;
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -26,7 +27,7 @@ export default function Monitoring() {
 
     const updateData = async () => {
         try {
-            const monitoringDataUrl = `${config.api.protocol}://${config.api.hostname}${config.api.path}/monitoring`;
+            const monitoringDataUrl = `${config.api.protocol}://${SERVER_HOSTNAME}:${config.api.port}${config.api.path}/monitoring`;
             const response = await fetch(monitoringDataUrl);
             const data = await response.json();
             const newData = [];
