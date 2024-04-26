@@ -27,11 +27,11 @@ export default function SpeedometerCard({ cardTitle, cardValue, cardUnit }) {
                         angle={160}
                         fontFamily='roboto'
                         accentColor={infoColor}
-                        width={200}
-                        height={120}>
+                        width={130}
+                        height={80}>
                         <Background angle={180} opacity="0"  />
                         <Arc/>
-                        <Needle color={infoColor} />
+                        <Needle color={infoColor} circleRadius={10} baseOffset={0} />
                         <Progress/>
                         <Marks lineColor='#000' />
                     </Speedometer>

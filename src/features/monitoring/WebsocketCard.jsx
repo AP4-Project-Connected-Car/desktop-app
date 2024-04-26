@@ -71,7 +71,7 @@ export default function WebsocketCard() {
     const style = styles[cardStyle];
     return (
         <div className="ws-card-container">
-            <Chip label="185.223.151.250" disabled={style.disabled} color={style.color} icon={<style.icon />} variant={style.variant} sx={{ borderWidth: 2 }} onClick={restartConnection} />
+            <Chip label={ws.host} disabled={style.disabled} color={style.color} icon={<style.icon />} variant={style.variant} sx={{ borderWidth: 2 }} onClick={restartConnection} />
         </div>
     );
 }

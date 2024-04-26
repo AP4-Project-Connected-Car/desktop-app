@@ -1,8 +1,13 @@
 import { useState } from 'react';
 
-import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import Modal from '@mui/material/Modal';
+import DialogTitle from '@mui/material/DialogTitle';
+import DialogContent from '@mui/material/DialogContent';
+import DialogActions from '@mui/material/DialogActions';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
+import Dialog from '@mui/material/Dialog';
+import Button from '@mui/material/Button';
 import TextSnippetIcon from '@mui/icons-material/TextSnippet';
 import BuildIcon from '@mui/icons-material/Build';
 
@@ -49,20 +54,36 @@ export default function LogCard({ object, createdAt, content, type }) {
                 </section>
                 <Logo color='primary' fontSize='large' />
             </div>
-            <Modal
-                open={open}
+
+            <Dialog
                 onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description">
-                <Box sx={style}>
-                    <Typography id="modal-modal-title" variant="h6" component="h2">
-                        { object }
-                    </Typography>
+                aria-labelledby="customized-dialog-title"
+                open={open}>
+                <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
+                    { object }
+                </DialogTitle>
+                <IconButton
+                    aria-label="close"
+                    onClick={handleClose}
+                    sx={{
+                        position: 'absolute',
+                        right: 8,
+                        top: 8,
+                        color: (theme) => theme.palette.grey[500],
+                    }}>
+                    <CloseIcon />
+                </IconButton>
+                <DialogContent dividers>
                     <h6 style={{textAlign: 'left', fontStyle: 'italic', margin: 0}}>{ date }</h6>
                     <Typography id="modal-modal-description" sx={{ mt: 2 }} dangerouslySetInnerHTML={{__html: content}}>
                     </Typography>
-                </Box>
-            </Modal>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleClose}>
+                        OK
+                    </Button>
+                </DialogActions>
+            </Dialog>
         </>
     );
 }
