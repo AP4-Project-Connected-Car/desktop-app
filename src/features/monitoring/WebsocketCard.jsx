@@ -1,4 +1,7 @@
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { COMPONENTS_ACTIONS } from '../../app/actions/monitoring/global';
 
 import Chip from '@mui/material/Chip';
 import WifiIcon from '@mui/icons-material/Wifi';
@@ -8,6 +11,8 @@ import WifiFindIcon from '@mui/icons-material/WifiFind';
 import WebsocketConnection from '../../utils/WebsocketConnection';
 
 export default function WebsocketCard() {
+    const dispatch = useDispatch();
+
     const [cardStyle, setCardStyle] = useState('pending');
 
     // Card styles
@@ -45,6 +50,14 @@ export default function WebsocketCard() {
     ws.events.close = () => {
         setCardStyle('pending');
         ws.reset();
+    }
+    ws.events.message = e => {
+        const message = JSON.parse(JSON.parse(e.data).message);
+        const comp = message.component;
+        const action = COMPONENTS_ACTIONS[comp].update
+        // TODO: Remove
+        console.log(message);
+        dispatch(action(message.content.value));
     }
 
     // Connect and restart functions
