@@ -4,14 +4,18 @@ import Alert from '@mui/material/Alert';
 
 import SignalCard from './SignalCard';
 
+import * as config from '../../../config.json';
+const SERVER_HOSTNAME = window.location.hostname;
+
 export default function Signals() {
     const [signalsList, setSignalsList] = useState([]);
     const [isFailed, setIsFailed] = useState(false);
 
 	useEffect(() => {
-		fetch(`https://albion-portaler-api-a7b10e63cc73.herokuapp.com/signal`)
+        const signalsUrl = `${config.api.protocol}://${SERVER_HOSTNAME}:${config.api.port}${config.api.path}/signals`;
+		fetch(signalsUrl)
             .then(response => response.json())
-            .then(data => setSignalsList(data))
+            .then(data => setSignalsList(data.data))
             .catch(err => {
                 console.error(err);
                 setIsFailed(true);

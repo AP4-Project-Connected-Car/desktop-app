@@ -8,6 +8,9 @@ import Alert from '@mui/material/Alert';
 import LogForm from './LogForm';
 import LogCard from './LogCard';
 
+import * as config from '../../../config.json';
+const SERVER_HOSTNAME = window.location.hostname;
+
 export default function Logbook() {
     const [open, setOpen] = useState(false);
     const [logs, setLogs] = useState([]);
@@ -18,7 +21,8 @@ export default function Logbook() {
 
     async function loadLogs() {
 		try {
-			const response = await fetch("https://albion-portaler-api-a7b10e63cc73.herokuapp.com/log");
+            const logsUrl = `${config.api.protocol}://${SERVER_HOSTNAME}:${config.api.port}${config.api.path}/logbook`;
+            const response = await fetch(logsUrl);
 			const data = await response.json();
             data.sort(function(a, b) {
                 let keyA = new Date(a.createdAt),
@@ -63,8 +67,8 @@ export default function Logbook() {
                         const formData = new FormData(event.currentTarget);
                         const formJson = Object.fromEntries(formData.entries());
                         formJson.type = Number(formJson.type);
-                        console.log(formJson);
-                        fetch("https://albion-portaler-api-a7b10e63cc73.herokuapp.com/log", {
+                        const logsUrl = `${config.api.protocol}://${SERVER_HOSTNAME}:${config.api.port}${config.api.path}/logbook`;
+                        fetch(logsUrl, {
                             method: 'POST',
                             headers: {
                               'Accept': 'application/json',

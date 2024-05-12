@@ -54,7 +54,6 @@ export default function LogCard({ object, createdAt, content, type }) {
                 </section>
                 <Logo color='primary' fontSize='large' />
             </div>
-            
             <Dialog
                 onClose={handleClose}
                 aria-labelledby="customized-dialog-title"

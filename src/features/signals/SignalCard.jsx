@@ -35,7 +35,6 @@ export default function SignalCard({ name, description, imgName }) {
                 <h3>{ name }</h3>
                 <img src={ imgName } alt={name} />
             </div>
-            
             <Dialog
                 onClose={handleClose}
                 aria-labelledby="customized-dialog-title"
