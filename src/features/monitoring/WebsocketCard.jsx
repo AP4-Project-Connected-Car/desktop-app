@@ -55,8 +55,6 @@ export default function WebsocketCard() {
         const message = JSON.parse(JSON.parse(e.data).message);
         const comp = message.component;
         const action = COMPONENTS_ACTIONS[comp].update
-        // TODO: Remove
-        console.log(message);
         dispatch(action(message.content.value));
     }
 
